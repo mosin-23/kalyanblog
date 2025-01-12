@@ -25,21 +25,8 @@ const BlogSchema = new mongoose.Schema({
     validate: [arrayLimit, "You can add up to 10 images only."], // Custom validator
   },
   links: {
-    link1: {
-      type: String,
-      default: null, // Optional
-      validate: [isValidURL, "Invalid URL format."],
-    },
-    link2: {
-      type: String,
-      default: null,
-      validate: [isValidURL, "Invalid URL format."],
-    },
-    link3: {
-      type: String,
-      default: null,
-      validate: [isValidURL, "Invalid URL format."],
-    },
+    type: [String], // Array of image URLs or paths
+    validate: [arrayLimit, "You can add up to 10 images only."], // Custom validator
   },
   createdAt: {
     type: Date,
