@@ -15,11 +15,7 @@ const createBlog = async (req, res) => {
       category,
       description,
       images: images || [],
-      links: {
-        link1: links?.link1 || null,
-        link2: links?.link2 || null,
-        link3: links?.link3 || null,
-      },
+      links: links || [],
     });
 
     const savedBlog = await newBlog.save();
