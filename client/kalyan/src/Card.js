@@ -109,14 +109,15 @@ useEffect(() => {
       {/* Blog Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-10 ml-8 justify-center">
         {filteredBlogs.map((blog, index) => (
-          <div key={index} className="max-w-xs rounded-lg overflow-hidden shadow-lg bg-white ">
+          <div key={index} className="max-w-xs rounded-lg overflow-hidden shadow-lg bg-white  shadow-teal-300 shadow-lg">
             {/* Blog Image */}
             {blog.images.length > 0 && (
-              <img className="w-full h-48 object-cover" src={blog.images[0]} alt={blog.title} />
+              <img className="w-full h-48 object-cover " src={blog.images[0]} alt={blog.title} />
             )}
 
             <div className="px-6 py-4">
               {/* Blog Title */}
+              <hr  className='bg-black mb-2 h-0.5 w-auto'/>
               <h2 className="text-xl font-semibold text-gray-800 font-serif  ">{blog.title}</h2>
 
               {/* Blog Category and Description */}
