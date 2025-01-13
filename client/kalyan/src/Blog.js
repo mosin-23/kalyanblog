@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Loader from './Loader';
 import Slider from 'react-slick'; // Import react-slick for the carousel
-axios.defaults.baseURL = 'http://localhost:8000/kalyan';
+axios.defaults.baseURL = 'https://kalyanblog.onrender.com/kalyan';
 
 const BlogDetails = () => {
   const { id } = useParams(); // Get the blog ID from the URL
@@ -57,28 +57,24 @@ const BlogDetails = () => {
             <img
               src={image}
               alt={`Blog Image ${index + 1}`}
-              className="w-full h-64 object-cover rounded"
+              className="w-full h-64 object-contain rounded"
             />
           </div>
         ))}
       </Slider>
-
+      <a href={blog.links[0]} className='font-bold text-blue-500' hre>{blog.links[0]}</a>
       <h1 className="text-2xl font-bold mt-4">{blog.title}</h1>
       <p className="text-gray-600 mt-2">
         <strong>Category:</strong> {blog.category}
       </p>
+      <a href={blog.links[1]} className='font-bold text-blue-500' hre>{blog.links[1]}</a>
       <p className="text-gray-800 mt-4">{blog.description}</p>
+      <a href={blog.links[2]} className='font-bold text-blue-500' hre>{blog.links[2]}</a>
+
       <p className="text-gray-500 text-sm mt-2">
         Posted on: {new Date(blog.createdAt).toLocaleDateString()}
       </p>
 
-      {blog.links && (
-        <>
-          <p className="text-blue-400">{blog.links.link1}</p>
-          <p className="text-blue-400">{blog.links.link2}</p>
-          <p className="text-blue-400">{blog.links.link3}</p>
-        </>
-      )}
     </div>
   );
 };

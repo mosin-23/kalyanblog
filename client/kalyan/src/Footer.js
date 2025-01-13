@@ -36,7 +36,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="https://www.instagram.com/thekalyan07/" className="hover:underline">
                 <button
   class="relative inline-flex h-12 active:scale-95 transistion overflow-hidden rounded-lg p-[1px] focus:outline-none"
 >

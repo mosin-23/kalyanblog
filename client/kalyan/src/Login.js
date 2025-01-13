@@ -15,7 +15,7 @@ const Login = ({ setIsLogged }) => {
 
     try {
       // Send the email and password to the backend
-      const response = await axios.post('http://localhost:8000/kalyan/auth/verify', { email, password });
+      const response = await axios.post('https://kalyanblog.onrender.com/kalyan/auth/verify', { email, password });
 
       if (response.data.success) {
         setMessage("Login successful!");

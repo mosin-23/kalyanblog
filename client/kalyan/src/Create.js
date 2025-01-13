@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-axios.defaults.baseURL = 'http://localhost:8000/kalyan';
+axios.defaults.baseURL = 'https://kalyanblog.onrender.com/kalyan';
 
 const Create = ({ setIsLogged }) => {
   const [blogData, setBlogData] = useState({

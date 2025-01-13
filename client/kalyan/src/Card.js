@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Loader from './Loader';
-axios.defaults.baseURL = 'http://localhost:8000/kalyan';
+axios.defaults.baseURL = 'https://kalyanblog.onrender.com/kalyan';
 
 const BlogComponent = () => {
   const [blogs, setBlogs] = useState([]); // State to hold the fetched blog data
@@ -107,9 +107,9 @@ useEffect(() => {
 </div>
 
       {/* Blog Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-10 justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-10 ml-8 justify-center">
         {filteredBlogs.map((blog, index) => (
-          <div key={index} className="max-w-xs rounded-lg overflow-hidden shadow-lg bg-white">
+          <div key={index} className="max-w-xs rounded-lg overflow-hidden shadow-lg bg-white ">
             {/* Blog Image */}
             {blog.images.length > 0 && (
               <img className="w-full h-48 object-cover" src={blog.images[0]} alt={blog.title} />
@@ -117,7 +117,7 @@ useEffect(() => {
 
             <div className="px-6 py-4">
               {/* Blog Title */}
-              <h2 className="text-xl font-semibold text-gray-800">{blog.title}</h2>
+              <h2 className="text-xl font-semibold text-gray-800 font-serif  ">{blog.title}</h2>
 
               {/* Blog Category and Description */}
               <p className="text-gray-600 text-sm mt-2"><strong>Category:</strong> {blog.category}</p>
