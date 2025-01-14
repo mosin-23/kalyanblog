@@ -4,7 +4,6 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import NewsLetter from './NewsLetter';
 import Loader from './Loader';
-
 // Lazy load the components
 const About = React.lazy(() => import('./About'));
 const BlogComponent = React.lazy(() => import('./Card'));
@@ -35,8 +34,8 @@ const App = () => {
           <Navbar />
           <Suspense fallback={<Loader/>}>
             <Routes>
-              <Route path="/" element={<BlogComponent />} />
-              <Route path="/about" element={<About />} />
+            <Route path="/" element={<BlogComponent/>} />
+            <Route path="/about" element={<About />} />
               <Route path="/kalyan/:id" element={<Blog />} />
               <Route path="/admin/login" element={<Login setIsLogged={setIsLogged} />} />
               <Route

@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-gray-900 text-white flex items-center flex-row lg:flex-row justify-between px-10 py-8 ">
-      <div className="flex items-center flex-row">
+      <div className="flex items-center flex-row" onClick={()=>{window.location.href="/"}}>
         <img src={dp} alt="Blog Logo" className="w-10 h-10 rounded-full mr-3" />
         <span className="text-xl font-bold italic font-serif mr-2"><h1>KALYAN.V</h1></span>
         <svg xmlns="http://www.w3.org/2000/svg" fill="green" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -29,7 +29,7 @@ const Navbar = () => {
       
 
       {/* Mobile Menu Button */}
-      <div className="relative flex items-center space-x-3">
+      <div className="relative flex items-center space-x-3 ">
         <button
           onClick={toggleMenu}
           className="md:hidden flex items-center p-2 rounded-md hover:bg-gray-800"
