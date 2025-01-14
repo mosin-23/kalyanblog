@@ -4,13 +4,14 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import NewsLetter from './NewsLetter';
 import Loader from './Loader';
+import Error from './404';
 // Lazy load the components
 const About = React.lazy(() => import('./About'));
 const BlogComponent = React.lazy(() => import('./Card'));
 const Blog = React.lazy(() => import('./Blog'));
 const Login = React.lazy(() => import('./Login'));
 const Create = React.lazy(() => import('./Create'));
-
+const ErrorPage=React.lazy(()=>import('./404'));
 const App = () => {
   const [isLogged, setIsLogged] = useState(false);
 
@@ -42,6 +43,7 @@ const App = () => {
                 path="/admin/createblog"
                 element={isLogged ? <Create isLogged={isLogged} /> : <Login setIsLogged={setIsLogged} />}
               />
+              <Route path='*' element={<ErrorPage/>}/>
             </Routes>
           </Suspense>
           <ConditionalComponents />
