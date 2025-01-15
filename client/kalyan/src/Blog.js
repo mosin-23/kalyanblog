@@ -48,6 +48,14 @@ const BlogDetails = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+  const splitParagraph = (text, chunkSize = 50) => {
+    const words = text.split(' ');
+    const chunks = [];
+    for (let i = 0; i < words.length; i += chunkSize) {
+      chunks.push(words.slice(i, i + chunkSize).join(' '));
+    }
+    return chunks;
+  };
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
@@ -57,7 +65,7 @@ const BlogDetails = () => {
             <img
               src={image}
               alt={`Blog Image ${index + 1}`}
-              className="w-full h-64 object-contain rounded"
+              className="w-full h-64 object-contain"
             />
           </div>
         ))}
@@ -68,8 +76,11 @@ const BlogDetails = () => {
         <strong>Category:</strong> {blog.category}
       </p>
       <a href={blog.links[1]} className='font-bold text-blue-500' hre>{blog.links[1]}</a>
-      <p className="text-gray-800 mt-4">{blog.description}</p>
-      <a href={blog.links[2]} className='font-bold text-blue-500' hre>{blog.links[2]}</a>
+      {splitParagraph(blog.description).map((chunk, index) => (
+            <p key={index} className="text-gray-700 mb-4">
+              {chunk}
+            </p>
+          ))}      <a href={blog.links[2]} className='font-bold text-blue-500' hre>{blog.links[2]}</a>
 
       <p className="text-gray-500 text-sm mt-2">
         Posted on: {new Date(blog.createdAt).toLocaleDateString()}
