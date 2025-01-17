@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import dp from './dp.jpg';
 import { Link } from 'react-router-dom';
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,9 +35,7 @@ const Navbar = () => {
           onClick={toggleMenu}
           className="md:hidden flex items-center p-2 rounded-md hover:bg-gray-800"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
+        <GiHamburgerMenu  size={24} color='white'/>
         </button>
 
         {/* Mobile Menu */}

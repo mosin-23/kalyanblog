@@ -28,8 +28,8 @@ const NewsLetter = () => {
     <>
         <ToastContainer/>
 
-    <section className=" bg-gray-900">
-      <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-10 lg:px-6 mt-10">
+    <section className=" bg-gray-900 rounded-xl flex mt-10 mb-10">
+      <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-10 lg:px-6 mt-10 items-center justify-center">
         <div class="mx-auto max-w-screen-md sm:text-center">
           <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl text-white text-center">
             Sign up for our newsletter

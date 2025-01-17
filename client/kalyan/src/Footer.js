@@ -1,10 +1,11 @@
 import React from 'react';
 import dp from './dp.jpg'
+import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <div>
       <footer className="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
-        <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8 bg-gray-900 text-white rounded-md">
           <div className="sm:flex sm:items-center sm:justify-between">
             <a
               href="https://kalyan-portfolio.com/" // Replace with your portfolio or personal website
@@ -37,7 +38,8 @@ const Footer = () => {
               </li>
               <li>
                 <a href="https://www.instagram.com/thekalyan07/" className="hover:underline">
-                <button
+                <Link to="/subscribe">
+                <button 
   class="relative inline-flex h-12 active:scale-95 transistion overflow-hidden rounded-lg p-[1px] focus:outline-none"
 >
   <span
@@ -63,7 +65,7 @@ const Footer = () => {
     </svg>
   </span>
 </button>
-
+</Link>
                 </a>
               </li>
             </ul>
@@ -77,7 +79,7 @@ const Footer = () => {
               href="https://kalyan-portfolio.com/" // Replace with your portfolio or personal website
               className="hover:underline"
             >
-              V.Kalyan
+              VKalyan.Tech
             </a>
             . All Rights Reserved.
           </span>

@@ -20,7 +20,6 @@ useEffect(() => {
       .get('/blogs') // You only need to provide the path, baseURL is already set
       .then((response) => {
         setBlogs(response.data); // Set the fetched blog data
-        console.log(response.data)
         setFilteredBlogs(response.data); // Set the filtered blogs to all blogs initially
         setLoading(false); // Set loading to false after data is fetched
       })

@@ -12,22 +12,11 @@ const Blog = React.lazy(() => import('./Blog'));
 const Login = React.lazy(() => import('./Login'));
 const Create = React.lazy(() => import('./Create'));
 const ErrorPage=React.lazy(()=>import('./404'));
+const News=React.lazy(()=>import('./NewsLetter'))
 const App = () => {
   const [isLogged, setIsLogged] = useState(false);
 
-  // Component to conditionally render the Footer or Newsletter
-  const ConditionalComponents = () => {
-    const location = useLocation();
-
-    // Show the newsletter only on the blog page ('/')
-    if (location.pathname === '/') {
-      return <NewsLetter />;
-    }
-
-    // Otherwise, render the footer
-    return <Footer />;
-  };
-
+  
   return (
     <div>
       <Router>
@@ -37,6 +26,7 @@ const App = () => {
             <Routes>
             <Route path="/" element={<BlogComponent/>} />
             <Route path="/about" element={<About />} />
+            <Route path="/subscribe" element={<News/>}/>
               <Route path="/kalyan/:id" element={<Blog />} />
               <Route path="/admin/login" element={<Login setIsLogged={setIsLogged} />} />
               <Route
@@ -46,7 +36,7 @@ const App = () => {
               <Route path='*' element={<ErrorPage/>}/>
             </Routes>
           </Suspense>
-          <ConditionalComponents />
+          <Footer />
         </div>
       </Router>
     </div>
