@@ -85,16 +85,28 @@ useEffect(() => {
       Tech
     </button>
     <button
+      onClick={() => filterBlogsByCategory('Jobs')}
+      className="px-4 py-2 rounded-full bg-orange-500 text-white"
+    >
+      Jobs
+    </button>
+    <button
+      onClick={() => filterBlogsByCategory('Schemes')}
+      className="px-5 py-2 rounded-full bg-gray-600 text-white"
+    >
+      Schemes
+    </button>
+    <button
       onClick={()=>{fetchLatestBlogs()}}// Fetch latest blogs when "Latest" is clicked
       className="px-4 py-2 rounded-full bg-red-500 text-white"
     >
       Latest
     </button>
     <button
-      onClick={() => filterBlogsByCategory('Lifestyle')}
+      onClick={() => filterBlogsByCategory('earning')}
       className="px-4 py-2 rounded-full bg-black text-white"
     >
-      Lifestyle
+      Earning
     </button>
     <button
       onClick={() => filterBlogsByCategory('Tech Hacks')}
