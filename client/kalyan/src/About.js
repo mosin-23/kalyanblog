@@ -6,7 +6,7 @@ const About = () => {
     <div class="sm:flex items-center max-w-screen-xl">
     <div class="sm:w-1/2 p-10">
         <div class="image object-center text-center">
-            <img src="https://i.imgur.com/WbQnbas.png" alt='about'/>
+            <img src="https://png.pngtree.com/png-vector/20240320/ourmid/pngtree-coding-clipart-guy-in-glasses-computer-tech-cartoon-vector-illustration-png-image_11957889.png" alt='about'/>
         </div>
     </div>
     <div class="sm:w-1/2 p-5">
