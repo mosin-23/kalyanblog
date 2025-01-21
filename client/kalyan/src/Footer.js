@@ -76,7 +76,7 @@ const Footer = () => {
           <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2025{' '}
             <a
-              href="https://kalyan-portfolio.com/" // Replace with your portfolio or personal website
+              href="https://www.instagram.com/thekalyan07/" // Replace with your portfolio or personal website
               className="hover:underline"
             >
               VKalyan.Tech
