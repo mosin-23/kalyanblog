@@ -80,7 +80,7 @@ const Navbar = () => {
   <button
     href="/"
     class="group flex justify-center p-2 rounded-md drop-shadow-xl from-gray-800 bg-[#0088cc] text-white font-semibold hover:translate-y-3 hover:rounded-[50%] transition-all duration-500 hover:from-[#005f99] hover:to-[#003366]"
-    onClick={()=>{window.open("https://telegram.me/pycrafthub", "_blank");}}
+    onClick={()=>{window.open("https://t.me/kdealsforyou", "_blank");}}
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
