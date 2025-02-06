@@ -94,7 +94,7 @@ const BlogDetails = () => {
         ))}
 
       {blog.links && blog.links[1] && (
-        <a href={blog.links[1]} className="font-bold text-blue-500">
+        <a href={blog.links[1]} className="font-bold text-blue-500 ">
           {blog.links[1]}
         </a>
       )}

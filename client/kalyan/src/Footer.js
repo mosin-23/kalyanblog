@@ -81,7 +81,10 @@ const Footer = () => {
             >
               VKalyan.Tech
             </a>
-            . All Rights Reserved.
+            . All Rights Reserved.{" "}
+        <Link to="/privacy-policy" className="hover:underline">
+          Privacy Policy
+        </Link>
           </span>
         </div>
       </footer>
