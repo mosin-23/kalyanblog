@@ -73,20 +73,16 @@ const BlogDetails = () => {
         </Slider>
       )}
 
-      {blog.links && blog.links[0] && (
-        <a href={blog.links[0]} className="font-bold text-blue-500">
-          {blog.links[0]}
-        </a>
-      )}
+
 
       <h1 className="text-2xl font-bold mt-4">{blog.title}</h1>
       <p className="text-gray-600 mt-2">
         <strong>Category:</strong> {blog.category}
       </p>
 
-      {blog.links && blog.links[1] && (
+      {blog.links && blog.links[0] && (
         <a href={blog.links[1]} className="font-bold text-blue-500">
-          {blog.links[1]}
+          {blog.links[0]}
         </a>
       )}
 
@@ -97,9 +93,9 @@ const BlogDetails = () => {
           </p>
         ))}
 
-      {blog.links && blog.links[2] && (
-        <a href={blog.links[2]} className="font-bold text-blue-500">
-          {blog.links[2]}
+      {blog.links && blog.links[1] && (
+        <a href={blog.links[1]} className="font-bold text-blue-500">
+          {blog.links[1]}
         </a>
       )}
 
