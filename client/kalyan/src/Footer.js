@@ -79,7 +79,7 @@ const Footer = () => {
               href="https://www.instagram.com/thekalyan07/" // Replace with your portfolio or personal website
               className="hover:underline"
             >
-              VKalyan.Tech
+              VKalyan.Space
             </a>
             . All Rights Reserved.{" "}
         <Link to="/privacy-policy" className="hover:underline">
