@@ -120,7 +120,7 @@ useEffect(() => {
       {/* Blog Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-10 ml-8 justify-center ">
         {filteredBlogs.map((blog, index) => (
-          <div key={index} className="max-w-xs rounded-lg overflow-hidden shadow-lg bg-white  shadow-teal-300 shadow-lg hover:shadow-teal-500 hover:shadow-xl">
+          <div key={index} className="max-w-xs rounded-lg overflow-hidden shadow-lg bg-white  shadow-teal-300 shadow-lg hover:shadow-teal-500 hover:shadow-xl"onClick={()=>{FetchPost(blog._id)}}>
             {/* Blog Image */}
             {blog.images.length > 0 && (
               <img className="w-full h-48 object-cover " src={blog.images[0]} alt={blog.title} />
