@@ -2,7 +2,6 @@ import React, { useState, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import NewsLetter from './NewsLetter';
 import Loader from './Loader';
 import Privacy from './PrivacyPolicy'
 import Error from './404';
@@ -13,22 +12,21 @@ const Blog = React.lazy(() => import('./Blog'));
 const Login = React.lazy(() => import('./Login'));
 const Create = React.lazy(() => import('./Create'));
 const ErrorPage=React.lazy(()=>import('./404'));
-const News=React.lazy(()=>import('./NewsLetter'))
 const PrivacyPol=React.lazy(()=>import('./PrivacyPolicy'))
 const App = () => {
   const [isLogged, setIsLogged] = useState(false);
 
   
   return (
-    <div>
+<div className="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-100 to-teal-100">
+
       <Router>
         <div>
-          <Navbar />
+        <Navbar />
           <Suspense fallback={<Loader/>}>
             <Routes>
             <Route path="/" element={<BlogComponent/>} />
             <Route path="/about" element={<About />} />
-            <Route path="/subscribe" element={<News/>}/>
             <Route path="/privacy-policy" element={<PrivacyPol/>}/>
               <Route path="/kalyan/:id" element={<Blog />} />
               <Route path="/admin/login" element={<Login setIsLogged={setIsLogged} />} />

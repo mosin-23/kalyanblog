@@ -2,149 +2,113 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Loader from './Loader';
+
 axios.defaults.baseURL = 'https://kalyanblog.onrender.com/kalyan';
 
 const BlogComponent = () => {
-  const [blogs, setBlogs] = useState([]); // State to hold the fetched blog data
-  const [filteredBlogs, setFilteredBlogs] = useState([]); // State to hold filtered blog data
-  const [loading, setLoading] = useState(true); // Loading state
-  const [latestBlogs, setLatestBlogs] = useState([]); // State to hold the latest blog data
-  const navigate = useNavigate(); 
+  const [blogs, setBlogs] = useState([]);
+  const [filteredBlogs, setFilteredBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [delay, setDelay] = useState(true);
+  const navigate = useNavigate();
 
-  var blogid;
-
-   // Fetch all blogs from the API
-useEffect(() => {
+  useEffect(() => {
     axios
-      .get('/blogs') // You only need to provide the path, baseURL is already set
+      .get('/blogs')
       .then((response) => {
-        setBlogs(response.data); // Set the fetched blog data
-        setFilteredBlogs(response.data); // Set the filtered blogs to all blogs initially
-        setLoading(false); // Set loading to false after data is fetched
+        setBlogs(response.data);
+        setFilteredBlogs(response.data);
+        setLoading(false);
       })
       .catch((error) => {
-        console.error('There was an error fetching the blogs:', error);
-        setLoading(false); // Set loading to false in case of an error
+        console.error('Error fetching blogs:', error);
+        setLoading(false);
       });
-    },[]);
-  useEffect(() => {
-      const timer = setTimeout(() => setDelay(false), 2000); // Set delay to false after 2 seconds
-      return () => clearTimeout(timer); // Clean up the timer
-    }, []);
+  }, []);
 
-  // Fetch the latest blogs from the API when "Latest" is clicked
+  useEffect(() => {
+    const timer = setTimeout(() => setDelay(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const fetchLatestBlogs = () => {
     axios
-      .get('/blogslatest') // Fetch latest blogs from the /blogslatest endpoint
+      .get('/blogslatest')
       .then((response) => {
-        setLatestBlogs(response.data); // Update the latest blogs
-        setFilteredBlogs(response.data); // Filter blogs by latest blogs
+        setFilteredBlogs(response.data);
       })
       .catch((error) => {
-        console.error('There was an error fetching the latest blogs:', error);
+        console.error('Error fetching latest blogs:', error);
       });
   };
 
   const FetchPost = (blogId) => {
-    navigate(`/kalyan/${blogId}`); 
+    navigate(`/kalyan/${blogId}`);
   };
-  // Function to filter blogs based on category
+
   const filterBlogsByCategory = (category) => {
     if (category === 'all') {
-      setFilteredBlogs(blogs); // If "All" is clicked, show all blogs
+      setFilteredBlogs(blogs);
     } else {
       const filtered = blogs.filter((blog) => blog.category === category);
-      setFilteredBlogs(filtered); // Filter blogs by selected category
+      setFilteredBlogs(filtered);
     }
   };
 
   if (delay || loading) {
     return (
-      <div className="flex justify-center items-center">
-        <Loader/>
+      <div className="flex justify-center items-center min-h-screen">
+        <Loader />
       </div>
     );
   }
 
   return (
-    <>
-    <div className="p-1">
-  {/* Category Buttons */}
-  <div className="mb-6 grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    <button
-      onClick={() => filterBlogsByCategory('all')}
-      className="px-4 py-2 rounded-full bg-fuchsia-500 text-white"
-    >
-      All
-    </button>
-    <button
-      onClick={() => filterBlogsByCategory('Tech')}
-      className="px-4 py-2 rounded-full bg-blue-500 text-white"
-    >
-      Tech
-    </button>
-    <button
-      onClick={() => filterBlogsByCategory('Jobs')}
-      className="px-4 py-2 rounded-full bg-orange-500 text-white"
-    >
-      Jobs
-    </button>
-    <button
-      onClick={() => filterBlogsByCategory('Schemes')}
-      className="px-5 py-2 rounded-full bg-gray-600 text-white"
-    >
-      Schemes
-    </button>
-    <button
-      onClick={()=>{fetchLatestBlogs()}}// Fetch latest blogs when "Latest" is clicked
-      className="px-4 py-2 rounded-full bg-red-500 text-white"
-    >
-      Latest
-    </button>
-    <button
-      onClick={() => filterBlogsByCategory('earning')}
-      className="px-4 py-2 rounded-full bg-black text-white"
-    >
-      Earning
-    </button>
-    <button
-      onClick={() => filterBlogsByCategory('Tech Hacks')}
-      className="px-15 py-2  rounded-full bg-emerald-500 text-white"
-    >
-      Tech Hacks
-    </button>
-  </div>
-</div>
+    <div className="p-4">
+      {/* Category Buttons */}
+      <div className="  mt-24 mb-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+        <button onClick={() => filterBlogsByCategory('all')} className="px-4 py-2 rounded-full bg-fuchsia-500 text-white">All</button>
+        <button onClick={() => filterBlogsByCategory('Tech')} className="px-4 py-2 rounded-full bg-blue-500 text-white">Tech</button>
+        <button onClick={() => filterBlogsByCategory('Jobs')} className="px-4 py-2 rounded-full bg-orange-500 text-white">Jobs</button>
+        <button onClick={() => filterBlogsByCategory('Schemes')} className="px-4 py-2 rounded-full bg-gray-600 text-white">Schemes</button>
+        <button onClick={fetchLatestBlogs} className="px-4 py-2 rounded-full bg-red-500 text-white">Latest</button>
+        <button onClick={() => filterBlogsByCategory('earning')} className="px-4 py-2 rounded-full bg-black text-white">Earning</button>
+        <button onClick={() => filterBlogsByCategory('Tech Hacks')} className="px-4 py-2 rounded-full bg-green-600 text-white">Tech Hacks</button>
+      </div>
 
       {/* Blog Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-10 ml-8 justify-center ">
-        {filteredBlogs.map((blog, index) => (
-          <div key={index} className="max-w-xs rounded-lg overflow-hidden shadow-lg bg-white  shadow-teal-300 shadow-lg hover:shadow-teal-500 hover:shadow-xl">
-            {/* Blog Image */}
-            {blog.images.length > 0 && (
-              <img className="w-full h-48 object-cover " src={blog.images[0]} alt={blog.title} />
-            )}
-
-            <div className="px-6 py-4">
-              {/* Blog Title */}
-              <hr  className='bg-black mb-2 h-0.5 w-auto'/>
-              <h2 className="text-xl font-semibold text-gray-800 font-serif  ">{blog.title}</h2>
-
-              {/* Blog Category and Description */}
-              <p className="text-gray-600 text-sm mt-2"><strong>Category:</strong> {blog.category}</p>
-              <p className="text-gray-600 text-sm mt-2 truncate">{blog.description}</p>
-
-              {/* Blog Created At */}
-              <p className="text-gray-500 text-xs mt-2">Posted on: {new Date(blog.createdAt).toLocaleDateString()}</p>
+      {filteredBlogs.length === 0 ? (
+        <p className="text-center text-gray-500">No blogs found for this category.</p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredBlogs.map((blog) => (
+            <div
+              key={blog._id}
+              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer border border-gray-200 hover:scale-[1.02] transform hover:shadow-purple-300"
+              onClick={() => FetchPost(blog._id)}
+            >
+              {blog.images && blog.images.length > 0 && (
+                <img
+                  src={blog.images[0]}
+                  alt={blog.title}
+                  className="w-full h-52 object-cover"
+                />
+              )}
+              <div className="p-5">
+                <h2 className="text-xl font-semibold text-gray-800 mb-2">{blog.title}</h2>
+                <p className="text-gray-600 text-sm mb-3">
+                  {blog.description?.slice(0, 120)}...
+                </p>
+                <span className="inline-block px-3 py-1 text-xs bg-gray-100 text-gray-700 rounded-full">
+                  {blog.category}
+                </span>
+              </div>
             </div>
-            <button className="px-4 px-2 p-2 m-2 rounded-full bg-black text-white" onClick={()=>{FetchPost(blog._id)}}>
-              Read More..
-            </button>
-          </div>
-        ))}
-      </div>
-    </>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
+
 export default BlogComponent;
