@@ -66,14 +66,49 @@ const BlogComponent = () => {
   return (
     <div className="p-4">
       {/* Category Buttons */}
-      <div className="  mt-24 mb-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-        <button onClick={() => filterBlogsByCategory('all')} className="px-4 py-2 rounded-full bg-fuchsia-500 text-white">All</button>
-        <button onClick={() => filterBlogsByCategory('Tech')} className="px-4 py-2 rounded-full bg-blue-500 text-white">Tech</button>
-        <button onClick={() => filterBlogsByCategory('Jobs')} className="px-4 py-2 rounded-full bg-orange-500 text-white">Jobs</button>
-        <button onClick={() => filterBlogsByCategory('Schemes')} className="px-4 py-2 rounded-full bg-gray-600 text-white">Schemes</button>
-        <button onClick={fetchLatestBlogs} className="px-4 py-2 rounded-full bg-red-500 text-white">Latest</button>
-        <button onClick={() => filterBlogsByCategory('earning')} className="px-4 py-2 rounded-full bg-black text-white">Earning</button>
-        <button onClick={() => filterBlogsByCategory('Tech Hacks')} className="px-4 py-2 rounded-full bg-green-600 text-white">Tech Hacks</button>
+      <div className="mt-24 mb-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+        <button 
+          onClick={() => filterBlogsByCategory('all')} 
+          className="px-4 py-2 rounded-full bg-fuchsia-500 text-white"
+        >
+          All
+        </button>
+        <button 
+          onClick={() => filterBlogsByCategory('Tech')} 
+          className="px-4 py-2 rounded-full bg-blue-500 text-white"
+        >
+          Tech
+        </button>
+        <button 
+          onClick={() => filterBlogsByCategory('Jobs')} 
+          className="px-4 py-2 rounded-full bg-orange-500 text-white"
+        >
+          Jobs
+        </button>
+        <button 
+          onClick={() => filterBlogsByCategory('Schemes')} 
+          className="px-4 py-2 rounded-full bg-gray-600 text-white"
+        >
+          Schemes
+        </button>
+        <button 
+          onClick={fetchLatestBlogs} 
+          className="px-4 py-2 rounded-full bg-red-500 text-white"
+        >
+          Latest
+        </button>
+        <button 
+          onClick={() => filterBlogsByCategory('earning')} 
+          className="px-4 py-2 rounded-full bg-black text-white"
+        >
+          Earning
+        </button>
+        <button 
+          onClick={() => filterBlogsByCategory('Tech Hacks')} 
+          className="px-4 py-2 rounded-full bg-green-600 text-white"
+        >
+          Tech Hacks
+        </button>
       </div>
 
       {/* Blog Cards */}

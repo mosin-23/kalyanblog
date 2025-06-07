@@ -11,36 +11,46 @@ const Login = ({ setIsLogged }) => {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault(); // Prevent form submission from refreshing the page
+    e.preventDefault();
 
     try {
-      // Send the email and password to the backend
-      const response = await axios.post('https://kalyanblog.onrender.com/kalyan/auth/verify', { email, password });
+      const response = await axios.post(
+        'https://kalyanblog.onrender.com/kalyan/auth/verify',
+        { email, password }
+      );
 
       if (response.data.success) {
-        setMessage("Login successful!");
+        setMessage('Login successful!');
         setIsLogged(true);
-        localStorage.setItem('success', 'true'); // Store the success flag in localStorage
-        navigate('/admin/createblog'); // Redirect on successful login
+        localStorage.setItem('success', 'true');
+        navigate('/admin/createblog');
       }
     } catch (error) {
       setMessage(error.response?.data?.message || 'Login failed');
-      toast.error(error.response?.data?.message || 'Login failed', { position: 'top-center' });
+      toast.error(error.response?.data?.message || 'Login failed', {
+        position: 'top-center',
+      });
     }
   };
 
   return (
-    <div className="flex items-center justify-center">
-      <div id="login" className="w-64 h-80 bg-indigo-50 rounded shadow flex flex-col justify-between p-3">
-        <form className="text-indigo-500" onSubmit={handleLogin}>
-          <fieldset className="border-4 border-dotted border-indigo-500 p-5">
+    <div className="flex items-center justify-center min-h-screen pt-28 bg-gradient-to-br from-indigo-50 to-blue-100">
+      <div
+        id="login"
+        className="w-80 bg-white rounded-lg shadow-lg p-6 text-indigo-500"
+      >
+        <form onSubmit={handleLogin}>
+          <fieldset className="border-4 border-dotted border-indigo-500 p-5 rounded-md">
             <legend className="px-2 italic -mx-2">Welcome again!</legend>
 
-            <label className="text-xs font-bold after:content-['*'] after:text-red-400" htmlFor="email">
+            <label
+              className="block text-xs font-bold mt-4 after:content-['*'] after:text-red-400"
+              htmlFor="email"
+            >
               Mail
             </label>
             <input
-              className="w-full p-2 mb-2 mt-1 outline-none ring-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full p-2 mt-1 mb-2 rounded border border-indigo-200 focus:ring-2 focus:ring-indigo-500 outline-none"
               type="email"
               id="email"
               value={email}
@@ -48,11 +58,14 @@ const Login = ({ setIsLogged }) => {
               required
             />
 
-            <label className="text-xs font-bold after:content-['*'] after:text-red-400" htmlFor="password">
+            <label
+              className="block text-xs font-bold mt-2 after:content-['*'] after:text-red-400"
+              htmlFor="password"
+            >
               Password
             </label>
             <input
-              className="w-full p-2 mb-2 mt-1 outline-none ring-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full p-2 mt-1 mb-4 rounded border border-indigo-200 focus:ring-2 focus:ring-indigo-500 outline-none"
               type="password"
               id="password"
               value={password}
@@ -61,7 +74,7 @@ const Login = ({ setIsLogged }) => {
             />
 
             <button
-              className="w-full rounded bg-indigo-500 text-indigo-50 p-2 text-center font-bold hover:bg-indigo-400"
+              className="w-full rounded bg-indigo-500 text-white p-2 font-bold hover:bg-indigo-400 transition duration-300"
               type="submit"
             >
               Log In
@@ -69,7 +82,11 @@ const Login = ({ setIsLogged }) => {
           </fieldset>
         </form>
 
-        {message && <p className="text-center text-indigo-500 mt-3">{message}</p>}
+        {message && (
+          <p className="text-center text-indigo-600 mt-3 font-medium">
+            {message}
+          </p>
+        )}
       </div>
       <ToastContainer />
     </div>
