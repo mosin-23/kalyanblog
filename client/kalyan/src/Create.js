@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useNavigate } from 'react-router-dom';
 axios.defaults.baseURL = 'https://kalyanblog.onrender.com/kalyan';
 
 const Create = ({ setIsLogged }) => {
@@ -91,12 +90,28 @@ const Create = ({ setIsLogged }) => {
 
   return (
     <>
-      <div className="flex flex-row justify-center items-center">
+      <div className="flex flex-row justify-center items-center pt-36">
         <div className="CreateBlog flex flex-col mt-8 border border-2 py-4 rounded-lg border-teal-300 hover:shadow-teal-400 max-w-fit px-10 ml-28 hover:shadow-lg hover:shadow-emerald-400 mb-10 hover:border-2 hover:border-purple-400">
           <div className="flex flex-row justify-center">
             <h1 className="font-bold mb-4 mr-2">Create a Blog Post</h1>
           </div>
-
+<div className='flex flex-row justify-center items-center space-x-10'>
+  <button
+        onClick={handleLogout}
+        className="flex  px-4 py-2 mt-4 bg-red-500 rounded-xl hover:bg-red-600 text-white items-center"
+      >
+        Logout
+      </button>
+      
+      <div>
+        <button onClick={() => nav('/admin/users')} className="flex justify-center items-center px-4 py-2 mt-4 bg-blue-500 rounded-xl hover:bg-blue-600 text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7h18M3 12h18m-7 5h7" />
+          </svg>
+          List Users
+        </button>
+      </div>
+</div>
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col items-center">
               <div className="w-fit">
@@ -207,12 +222,7 @@ const Create = ({ setIsLogged }) => {
         </div>
       </div>
       <ToastContainer />
-      <button
-        onClick={handleLogout}
-        className="flex  px-4 py-2 mt-4 bg-red-500 rounded-xl hover:bg-red-600 text-white items-center"
-      >
-        Logout
-      </button>
+      
     </>
   );
 };

@@ -3,7 +3,7 @@ import React from 'react'
 const About = () => {
   return (
     <>
-    <div class="sm:flex items-center max-w-screen-xl ">
+    <div class="sm:flex items-center max-w-screen-xl pt-24">
     <div class="sm:w-1/2 p-10">
         <div class="image object-center text-center">
             <img src="https://png.pngtree.com/png-vector/20240320/ourmid/pngtree-coding-clipart-guy-in-glasses-computer-tech-cartoon-vector-illustration-png-image_11957889.png" alt='about'/>

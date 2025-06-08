@@ -5,6 +5,7 @@ import Footer from './Footer';
 import Loader from './Loader';
 import Privacy from './PrivacyPolicy'
 import Error from './404';
+import UserList from './UserList';
 // Lazy load the components
 const About = React.lazy(() => import('./About'));
 const BlogComponent = React.lazy(() => import('./Card'));
@@ -13,6 +14,7 @@ const Login = React.lazy(() => import('./Login'));
 const Create = React.lazy(() => import('./Create'));
 const ErrorPage=React.lazy(()=>import('./404'));
 const PrivacyPol=React.lazy(()=>import('./PrivacyPolicy'))
+const User = React.lazy(() => import('./UserList'));
 const App = () => {
   const [isLogged, setIsLogged] = useState(false);
 
@@ -30,6 +32,8 @@ const App = () => {
             <Route path="/privacy-policy" element={<PrivacyPol/>}/>
               <Route path="/kalyan/:id" element={<Blog />} />
               <Route path="/admin/login" element={<Login setIsLogged={setIsLogged} />} />
+              <Route path="/admin/users" element={<User />} />
+
               <Route
                 path="/admin/createblog"
                 element={isLogged ? <Create isLogged={isLogged} /> : <Login setIsLogged={setIsLogged} />}
