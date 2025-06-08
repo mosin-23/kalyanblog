@@ -58,7 +58,7 @@ const BlogDetails = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+<div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg pt-32">
       {blog.images && blog.images.length > 0 && (
         <Slider {...settings}>
           {blog.images.map((image, index) => (
