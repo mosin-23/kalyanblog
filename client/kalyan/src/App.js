@@ -7,6 +7,7 @@ import Privacy from './PrivacyPolicy'
 import Error from './404';
 import UserList from './UserList';
 // Lazy load the components
+const BlogDisclaimer = React.lazy(() => import('./Disclamier'));
 const About = React.lazy(() => import('./About'));
 const BlogComponent = React.lazy(() => import('./Card'));
 const Blog = React.lazy(() => import('./Blog'));
@@ -30,6 +31,7 @@ const App = () => {
             <Route path="/" element={<BlogComponent/>} />
             <Route path="/about" element={<About />} />
             <Route path="/privacy-policy" element={<PrivacyPol/>}/>
+              <Route path="/disclaimer" element={<BlogDisclaimer />} />
               <Route path="/kalyan/:id" element={<Blog />} />
               <Route path="/admin/login" element={<Login setIsLogged={setIsLogged} />} />
               <Route path="/admin/users" element={<User />} />
