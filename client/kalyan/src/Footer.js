@@ -105,6 +105,7 @@ const Footer = () => {
                   {[
                     { name: 'Home', href: '/' },
                     { name: 'About', href: '/about' },
+                     { name: 'Disclaimer', href: '/disclaimer' },
                     { name: 'Privacy Policy', href: '/privacy-policy' },
                     { name: 'Admin', href: '/admin/login' }
                   ].map((item) => (
