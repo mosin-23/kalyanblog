@@ -18,6 +18,7 @@ router.get('/blogslatest',viewBlogsLatest);
 
 router.get('/users',getAllUsers)
 
+
 router.get('/user/:id',viewUserById)
 
 router.get("/:id",viewBlogById);
