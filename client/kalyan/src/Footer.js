@@ -5,10 +5,12 @@ import dp from './dp.jpg';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+
 const Footer = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');     
-  const nav=useNavigate();
+  const nav = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -55,7 +57,8 @@ const Footer = () => {
                 <p className="text-gray-300 text-sm leading-relaxed">
                   Crafting digital experiences that inspire and engage. Let's build something amazing together.
                 </p>
-              
+              </div>
+
               {/* Quick Links */}
               <div>
                 <h3 className="text-sm font-semibold text-pink-300 tracking-wider uppercase">
@@ -65,7 +68,7 @@ const Footer = () => {
                   {[
                     { name: 'Home', href: '/' },
                     { name: 'About', href: '/about' },
-                     { name: 'Disclaimer', href: '/disclaimer' },
+                    { name: 'Disclaimer', href: '/disclaimer' },
                     { name: 'Privacy Policy', href: '/privacy-policy' },
                     { name: 'Admin', href: '/admin/login' }
                   ].map((item) => (
@@ -149,16 +152,6 @@ const Footer = () => {
                       />
                     </svg>
                     <span className="text-gray-300">2100031660cser@gmail.com</span>
-
-                  </li>
-                  <li className="flex items-start">
-                    <svg
-                      className="h-5 w-5 text-pink-400 mt-1 mr-3"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                    </svg>
                   </li>
                 </ul>
               </div>
