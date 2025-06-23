@@ -63,7 +63,7 @@ const BlogDetails = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8 mt-24">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 pt-28 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Blog Header */}
         <div className="text-center mb-8">
